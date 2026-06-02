@@ -1,0 +1,239 @@
+/* =============================================================
+   NIGHT BRIGHT — styles.css
+   Custom styles that complement Tailwind (CDN).
+   Tailwind handles layout/spacing/colors via utility classes;
+   this file owns the brand "motifs" Tailwind can't do cleanly:
+   the gold headlight glow, the starburst, the before/after
+   slider, and motion. Everything here is commented so it's
+   easy to tweak.
+   ------------------------------------------------------------
+   Brand tokens live here too (as CSS variables) AND are mapped
+   into Tailwind in index.html. Change a color in BOTH spots,
+   or just use the Tailwind class names (e.g. bg-crimson).
+   ============================================================= */
+
+:root {
+  --ink: #0A0A0B;          /* page background — the "night" */
+  --surface: #141416;       /* cards / alternating sections */
+  --surface-2: #1C1C20;     /* raised cards */
+  --crimson: #C8102E;       /* primary red (CTAs)            */
+  --crimson-deep: #7B1113;  /* deep maroon (from the car)    */
+  --gold: #E6B450;          /* headlight gold accent         */
+  --gold-bright: #FFD479;   /* glow highlight                */
+  --paper: #F5F3EF;         /* primary text                  */
+  --muted: #A8A6A1;         /* secondary text                */
+  --line: rgba(255,255,255,0.08); /* hairline borders        */
+}
+
+html { scroll-behavior: smooth; }
+/* Offset anchored sections so the sticky header doesn't cover them
+   (matches the tallest header height of ~96px + a little breathing room) */
+section[id] { scroll-margin-top: 104px; }
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reserve space at the bottom on phones so the sticky Book/Call bar
+   never covers footer content. Removed on >=768px (md), where the bar hides. */
+@media (max-width: 767px) {
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* If the visitor prefers reduced motion, kill smooth scroll + animations */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* -------------------------------------------------------------
+   THE MOTIF: gold headlight glow + 4-point starburst
+   Reused for hero backdrop, button glows, dividers, slider knob.
+   ------------------------------------------------------------- */
+
+/* Soft radial "glow" you can drop behind anything */
+.glow {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle,
+              rgba(255,212,121,0.30) 0%,
+              rgba(230,180,80,0.14) 35%,
+              rgba(230,180,80,0) 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A thin gold "starburst" divider between sections */
+.starburst-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg,
+              transparent, var(--line) 20%, var(--line) 80%, transparent);
+}
+.starburst-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 10px; height: 10px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: var(--gold);
+  box-shadow: 0 0 16px 2px rgba(255,212,121,0.6);
+}
+
+/* Glowing primary button. Use: class="btn-glow" on an <a>/<button> */
+.btn-glow {
+  position: relative;
+  transition: transform .18s ease-out, box-shadow .18s ease-out, filter .18s ease-out;
+  box-shadow: 0 0 0 rgba(255,212,121,0);
+}
+.btn-glow:hover,
+.btn-glow:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200,16,46,0.35), 0 0 28px rgba(255,212,121,0.35);
+  filter: brightness(1.05);
+}
+.btn-glow:active { transform: translateY(0); }
+
+/* Gold gradient text for accent words */
+.text-gold-gradient {
+  background: linear-gradient(90deg, var(--gold-bright), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* -------------------------------------------------------------
+   FOCUS STATES (accessibility) — visible gold ring on keyboard nav
+   ------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--gold-bright);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* -------------------------------------------------------------
+   SCROLL-REVEAL — JS adds .is-visible when element enters viewport
+   ------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================================
+   BEFORE / AFTER SLIDER  (the star feature)
+   - Two stacked images. The BEFORE image is clipped on the right.
+   - A draggable handle moves the clip line (--pos = 0..100).
+   - Works with mouse, touch, and keyboard (arrow keys / Home / End).
+   ============================================================= */
+.ba-slider {
+  --pos: 50;                 /* JS updates this 0..100 */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;     /* reserves space → no layout shift */
+  overflow: hidden;
+  border-radius: 16px;
+  user-select: none;
+  touch-action: pan-y;       /* allow vertical page scroll; we handle horizontal */
+  background: var(--surface);
+  cursor: ew-resize;
+}
+.ba-slider img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+/* The "before" image, clipped from the right edge based on --pos */
+.ba-before {
+  clip-path: inset(0 calc((100 - var(--pos)) * 1%) 0 0);
+}
+/* corner labels */
+.ba-label {
+  position: absolute;
+  bottom: 12px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 999px;
+  background: rgba(10,10,11,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 3;
+}
+.ba-label-before { left: 12px; color: var(--gold); }
+.ba-label-after  { right: 12px; color: var(--paper); }
+
+/* The draggable handle line + knob */
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--pos) * 1%);
+  width: 3px;
+  transform: translateX(-50%);
+  background: linear-gradient(var(--gold-bright), var(--gold));
+  z-index: 4;
+  cursor: ew-resize;
+}
+.ba-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;       /* >=44px touch target */
+  height: 48px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: var(--ink);
+  border: 2px solid var(--gold-bright);
+  box-shadow: 0 0 22px rgba(255,212,121,0.55);
+  display: grid;
+  place-items: center;
+  color: var(--gold-bright);
+}
+/* little starburst inside the knob (pure CSS) */
+.ba-knob::before {
+  content: "";
+  width: 14px; height: 14px;
+  background:
+    linear-gradient(var(--gold-bright), var(--gold-bright)) center/2px 100% no-repeat,
+    linear-gradient(var(--gold-bright), var(--gold-bright)) center/100% 2px no-repeat;
+  transform: rotate(45deg);
+  filter: drop-shadow(0 0 4px var(--gold-bright));
+}
+
+/* =============================================================
+   STICKY MOBILE BOTTOM BAR
+   Shown only on small screens; respects iPhone safe area.
+   ============================================================= */
+.mobile-bar {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Header background that fades in on scroll (JS toggles .scrolled) */
+.site-header {
+  transition: background-color .3s ease, backdrop-filter .3s ease, border-color .3s ease;
+  border-bottom: 1px solid transparent;
+}
+.site-header.scrolled {
+  background-color: rgba(10,10,11,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--line);
+}

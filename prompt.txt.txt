@@ -1,0 +1,10 @@
+Two changes:
+
+1. LOGO SIZE — The header logo is rendering far too small. Increase the header logo's height substantially (try around 56-72px tall on desktop, scaling down proportionally on mobile so it never overflows the header). Let its width auto-scale to keep the aspect ratio — do not distort it. If making it bigger crowds the nav, increase the header's vertical padding/height a bit to give the logo room to breathe. The logo should be clearly legible, not a tiny speck.
+
+2. SLOGAN / TAGLINE — Standardize our messaging site-wide:
+   - Primary slogan: "Clear Lights, Safer Nights" (note: comma, not a period)
+   - Supporting tagline: "Bringing clarity back to your drive."
+   Update these everywhere the old tagline appears (hero subheading, footer, meta description, OG tags, etc.) so the slogan reads "Clear Lights, Safer Nights" and, where a secondary line is used, "Bringing clarity back to your drive." Keep the existing styling/emphasis treatment.
+
+Give me a quick summary of what changed after.

@@ -1,0 +1,19 @@
+# Dependencies (none required for this static site, but just in case)
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Editor folders
+.vscode/
+.idea/
+
+# Vercel
+.vercel/
+
+# Environment files (keep secrets out of git)
+.env
+.env.*

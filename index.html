@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- viewport-fit=cover lets us use the iPhone safe-area for the bottom bar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- ============================ SEO / META ============================ -->
+  <title>Night Bright | Mobile Headlight Restoration in Chula Vista &amp; Eastlake, CA</title>
+  <meta name="description" content="Foggy, yellowed headlights? Night Bright comes to you in Eastlake, Chula Vista &amp; nearby San Diego for premium mobile headlight restoration. Clear Lights, Safer Nights — book today." />
+  <link rel="canonical" href="https://www.nightbrightsd.com/" /> <!-- [TODO] confirm final domain -->
+  <meta name="theme-color" content="#0A0A0B" />
+
+  <!-- Open Graph (Facebook, iMessage, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Night Bright — Mobile Headlight Restoration | Chula Vista &amp; Eastlake" />
+  <meta property="og:description" content="We come to you. Foggy headlights restored to crystal clear with a premium UV ceramic seal. Clear Lights, Safer Nights. Bringing clarity back to your drive." />
+  <meta property="og:image" content="assets/logo.png" /> <!-- [TODO] replace with a 1200x630 social share image -->
+  <meta property="og:url" content="https://www.nightbrightsd.com/" />
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Night Bright — Mobile Headlight Restoration" />
+  <meta name="twitter:description" content="We come to you. Clear Lights, Safer Nights." />
+  <meta name="twitter:image" content="assets/logo.png" />
+
+  <link rel="icon" href="assets/logo.png" />
+
+  <!-- ===================== FONTS: Sora (display) + Inter (body) ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ===================== TAILWIND (CDN, no build step) ===================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Map our brand tokens to Tailwind class names (e.g. bg-crimson, text-gold).
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0A0A0B',
+            surface: '#141416',
+            'surface-2': '#1C1C20',
+            crimson: '#C8102E',
+            'crimson-deep': '#7B1113',
+            gold: '#E6B450',
+            'gold-bright': '#FFD479',
+            paper: '#F5F3EF',
+            muted: '#A8A6A1',
+          },
+          fontFamily: {
+            display: ['Sora', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Our custom styles (motif, slider, motion) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- ===================== LOCAL BUSINESS SCHEMA (Google) ===================== -->
+  <!-- [TODO] Fine-tune geo coordinates and final URL/image before launch. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDetailing",
+    "name": "Night Bright",
+    "image": "https://www.nightbrightsd.com/assets/logo.png",
+    "description": "Mobile headlight restoration — we come to you in Eastlake, Chula Vista and nearby San Diego to restore foggy, yellowed, oxidized headlights to crystal clear.",
+    "slogan": "Clear Lights, Safer Nights",
+    "url": "https://www.nightbrightsd.com/",
+    "telephone": "+1-619-254-6943",
+    "email": "nightbrightsd@gmail.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chula Vista",
+      "addressRegion": "CA",
+      "postalCode": "91915",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.6573,
+      "longitude": -116.9803
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Eastlake, Chula Vista" },
+      { "@type": "City", "name": "Chula Vista" },
+      { "@type": "City", "name": "Bonita" },
+      { "@type": "City", "name": "National City" },
+      { "@type": "City", "name": "Otay Ranch" },
+      { "@type": "City", "name": "San Diego" },
+      { "@type": "City", "name": "Imperial Beach" }
+    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }],
+    "sameAs": []
+  }
+  </script>
+</head>
+
+<body class="font-body bg-ink text-paper antialiased">
+
+  <!-- Skip link for keyboard / screen-reader users -->
+  <a href="#hero" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:bg-gold focus:text-ink focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <!-- ====================================================================
+       1) STICKY HEADER
+       ==================================================================== -->
+  <header id="site-header" class="site-header fixed top-0 inset-x-0 z-50">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 lg:h-24 flex items-center justify-between" aria-label="Primary">
+      <!-- Logo: transparent white-text logo sits directly on the dark header.
+           Scales up on larger screens; width auto-scales to preserve aspect ratio. -->
+      <a href="#hero" class="flex items-center" aria-label="Night Bright home">
+        <img src="assets/logo.png" alt="Night Bright logo" class="h-11 sm:h-14 lg:h-16 w-auto" />
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-muted">
+        <li><a href="#how" class="hover:text-paper transition-colors">How it works</a></li>
+        <li><a href="#pricing" class="hover:text-paper transition-colors">Pricing</a></li>
+        <li><a href="#why" class="hover:text-paper transition-colors">Why us</a></li>
+        <li><a href="#area" class="hover:text-paper transition-colors">Service area</a></li>
+        <li><a href="#faq" class="hover:text-paper transition-colors">FAQ</a></li>
+      </ul>
+
+      <!-- Right-side actions -->
+      <div class="flex items-center gap-2">
+        <!-- Tap-to-call (mobile-friendly, always visible) -->
+        <a href="tel:+16192546943" class="md:hidden inline-flex items-center justify-center h-11 w-11 rounded-full border border-white/15 text-gold-bright" aria-label="Call Night Bright at 619-254-6943">
+          <!-- phone icon -->
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+
+        <!-- Book Now (primary CTA) -->
+        <a href="#booking" class="btn-glow inline-flex items-center justify-center h-11 px-5 rounded-full bg-crimson text-paper font-semibold text-sm">Book Now</a>
+
+        <!-- Mobile menu toggle -->
+        <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center h-11 w-11 rounded-full border border-white/15" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-ink/95 backdrop-blur border-t border-white/10">
+      <ul class="px-6 py-4 space-y-3 text-base">
+        <li><a href="#how" class="block py-1 text-muted hover:text-paper">How it works</a></li>
+        <li><a href="#pricing" class="block py-1 text-muted hover:text-paper">Pricing</a></li>
+        <li><a href="#why" class="block py-1 text-muted hover:text-paper">Why us</a></li>
+        <li><a href="#area" class="block py-1 text-muted hover:text-paper">Service area</a></li>
+        <li><a href="#faq" class="block py-1 text-muted hover:text-paper">FAQ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         2) HERO
+         ==================================================================== -->
+    <section id="hero" class="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
+      <!-- gold headlight glow backdrop (the motif) -->
+      <div class="glow" style="width:520px;height:520px;top:-120px;left:50%;transform:translateX(-50%);"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-crimson-deep/15 via-transparent to-ink pointer-events-none"></div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <p class="reveal inline-flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-widest text-gold uppercase mb-5">
+          <span class="h-1.5 w-1.5 rounded-full bg-gold-bright shadow-[0_0_10px_#FFD479]"></span>
+          Mobile Headlight Restoration · San Diego
+        </p>
+
+        <h1 class="reveal font-display font-extrabold leading-[1.05] text-4xl sm:text-6xl lg:text-7xl tracking-tight">
+          See clearer. Drive safer.<br />
+          <span class="text-gold-gradient">Crystal-clear headlights</span> at your door.
+        </h1>
+
+        <p class="reveal mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted">
+          Foggy, yellowed headlights cut your night vision and dull your car's look.
+          We come to you and restore them to like-new clarity — sealed to last.
+          <span class="text-paper font-medium">Clear Lights, Safer Nights.</span>
+        </p>
+
+        <!-- Two CTAs: one primary (book), one secondary (call/text) -->
+        <div class="reveal mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="#booking" class="btn-glow w-full sm:w-auto inline-flex items-center justify-center h-[52px] px-8 rounded-full bg-crimson text-paper font-semibold text-base">Book Now</a>
+          <a href="sms:+16192546943" class="w-full sm:w-auto inline-flex items-center justify-center h-[52px] px-8 rounded-full border border-gold/40 text-gold-bright font-semibold text-base hover:bg-gold/10 transition-colors">Call or Text</a>
+        </div>
+
+        <!-- trust badges -->
+        <ul class="reveal mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted">
+          <li class="inline-flex items-center gap-2"><span class="text-gold">✦</span> We come to you</li>
+          <li class="inline-flex items-center gap-2"><span class="text-gold">✦</span> ~1 hour service</li>
+          <li class="inline-flex items-center gap-2"><span class="text-gold">✦</span> Satisfaction guaranteed</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3) BEFORE / AFTER  (the star feature — draggable slider)
+         ==================================================================== -->
+    <section id="results" class="py-16 sm:py-24 bg-surface">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">See the difference</h2>
+          <p class="reveal mt-3 text-muted">Drag the slider to compare. Same headlight — minutes apart.</p>
+        </div>
+
+        <!-- Draggable comparison slider. -->
+        <div class="reveal ba-slider shadow-2xl ring-1 ring-white/10" id="ba-slider">
+          <!-- AFTER image (full, underneath) -->
+          <img class="ba-after" src="assets/ba-1-after.png" alt="Crystal-clear headlight after Night Bright restoration" />
+          <!-- BEFORE image (clipped on the right by the handle) -->
+          <img class="ba-before" src="assets/ba-1-before.png" alt="Foggy yellowed headlight before Night Bright restoration" />
+
+          <span class="ba-label ba-label-before">BEFORE</span>
+          <span class="ba-label ba-label-after">AFTER</span>
+
+          <!-- Draggable, keyboard-accessible handle -->
+          <div class="ba-handle" id="ba-handle" role="slider" tabindex="0"
+               aria-label="Drag to compare the headlight before and after restoration"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="ba-knob" aria-hidden="true"></span>
+          </div>
+        </div>
+        <p class="reveal mt-4 text-center text-xs text-muted">Tip: drag the gold handle — or use arrow keys when it's focused.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4) HOW IT WORKS — 3 steps
+         ==================================================================== -->
+    <section id="how" class="py-16 sm:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">How it works</h2>
+          <p class="reveal mt-3 text-muted">Three easy steps. No shop visit. No hassle.</p>
+        </div>
+
+        <ol class="grid gap-6 sm:grid-cols-3">
+          <!-- Step 1 -->
+          <li class="reveal relative rounded-2xl bg-surface p-7 ring-1 ring-white/10">
+            <span class="font-display text-5xl font-extrabold text-gold/30">01</span>
+            <h3 class="mt-3 font-display font-semibold text-xl">Book online</h3>
+            <p class="mt-2 text-muted text-sm leading-relaxed">Pick a time that works for you in under a minute — or just text us.</p>
+          </li>
+          <!-- Step 2 -->
+          <li class="reveal relative rounded-2xl bg-surface p-7 ring-1 ring-white/10">
+            <span class="font-display text-5xl font-extrabold text-gold/30">02</span>
+            <h3 class="mt-3 font-display font-semibold text-xl">We come to you</h3>
+            <p class="mt-2 text-muted text-sm leading-relaxed">We arrive at your home or work with everything needed. About an hour, start to finish.</p>
+          </li>
+          <!-- Step 3 -->
+          <li class="reveal relative rounded-2xl bg-surface p-7 ring-1 ring-white/10">
+            <span class="font-display text-5xl font-extrabold text-gold/30">03</span>
+            <h3 class="mt-3 font-display font-semibold text-xl">Crystal-clear lights</h3>
+            <p class="mt-2 text-muted text-sm leading-relaxed">Drive away with restored, UV-sealed headlights that look great and light the road.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6"><div class="starburst-divider"></div></div>
+
+    <!-- ====================================================================
+         5) SERVICES & PRICING
+         ==================================================================== -->
+    <section id="pricing" class="py-16 sm:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">Services &amp; pricing</h2>
+          <p class="reveal mt-3 text-muted">Premium results at an honest price. Mobile service included — no shop fees.</p>
+        </div>
+
+        <!-- Two tiers. UV ceramic seal is included in BOTH (shown as a gold badge). -->
+        <div class="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+          <!-- Full Restoration — Pair (featured / most popular) -->
+          <div class="reveal relative rounded-2xl bg-surface-2 p-7 ring-2 ring-crimson flex flex-col">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-crimson text-paper text-xs font-semibold px-3 py-1 rounded-full">Most popular</span>
+            <!-- UV seal included badge -->
+            <span class="inline-flex items-center gap-1.5 self-start text-xs font-semibold text-gold bg-gold/10 ring-1 ring-gold/30 px-2.5 py-1 rounded-full">
+              <span aria-hidden="true">★</span> UV Ceramic Seal Included
+            </span>
+            <h3 class="mt-4 font-display font-semibold text-xl">Full Restoration — Pair</h3>
+            <p class="mt-1 text-sm text-muted">UV ceramic seal included.</p>
+            <p class="mt-5 font-display text-4xl font-extrabold">$100</p>
+            <ul class="mt-5 space-y-2 text-sm text-muted flex-1">
+              <li>✓ Both headlights fully restored</li>
+              <li>✓ UV ceramic seal included</li>
+              <li>✓ We come to you</li>
+              <li>✓ ~1 hour</li>
+            </ul>
+            <a href="#booking" class="btn-glow mt-6 inline-flex items-center justify-center h-12 rounded-full bg-crimson text-paper font-semibold">Book this</a>
+          </div>
+
+          <!-- Heavy Restoration — Cracks & Spider-Webbing -->
+          <div class="reveal relative rounded-2xl bg-surface p-7 ring-1 ring-white/10 flex flex-col">
+            <!-- UV seal included badge -->
+            <span class="inline-flex items-center gap-1.5 self-start text-xs font-semibold text-gold bg-gold/10 ring-1 ring-gold/30 px-2.5 py-1 rounded-full">
+              <span aria-hidden="true">★</span> UV Ceramic Seal Included
+            </span>
+            <h3 class="mt-4 font-display font-semibold text-xl">Heavy Restoration — Cracks &amp; Spider-Webbing</h3>
+            <p class="mt-1 text-sm text-muted">For lenses with cracking or heavy spider-webbing.</p>
+            <p class="mt-5 font-display text-4xl font-extrabold">$145</p>
+            <ul class="mt-5 space-y-2 text-sm text-muted flex-1">
+              <li>✓ Both headlights fully restored</li>
+              <li>✓ For cracked or heavily spider-webbed lenses</li>
+              <li>✓ UV ceramic seal included</li>
+              <li>✓ We come to you</li>
+            </ul>
+            <a href="#booking" class="btn-glow mt-6 inline-flex items-center justify-center h-12 rounded-full border border-gold/40 text-gold-bright font-semibold">Book this</a>
+          </div>
+        </div>
+        <p class="reveal mt-6 text-center text-xs text-muted">UV ceramic seal included on every job. Final quote confirmed when you book.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6) WHY NIGHT BRIGHT — value props
+         ==================================================================== -->
+    <section id="why" class="py-16 sm:py-24 bg-surface">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">Why Night Bright</h2>
+          <p class="reveal mt-3 text-muted">Big-bang-for-your-buck restoration that actually lasts.</p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Each card uses a simple gold SVG icon -->
+          <div class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="h-11 w-11 grid place-items-center rounded-xl bg-gold/10 text-gold-bright mb-4">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h2l1-2h12l1 2h2"/><path d="M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/><path d="M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg">Mobile convenience</h3>
+            <p class="mt-2 text-sm text-muted">We bring the shop to your driveway. No drop-off, no waiting room.</p>
+          </div>
+
+          <div class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="h-11 w-11 grid place-items-center rounded-xl bg-gold/10 text-gold-bright mb-4">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg">UV ceramic seal — included</h3>
+            <p class="mt-2 text-sm text-muted">Every job includes a protective UV ceramic seal that keeps your lights clear far longer than a quick polish — at no extra charge.</p>
+          </div>
+
+          <div class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="h-11 w-11 grid place-items-center rounded-xl bg-gold/10 text-gold-bright mb-4">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg">Affordable</h3>
+            <p class="mt-2 text-sm text-muted">A fraction of the cost of new headlights, with results you'll actually notice.</p>
+          </div>
+
+          <div class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="h-11 w-11 grid place-items-center rounded-xl bg-gold/10 text-gold-bright mb-4">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg">Fast — about an hour</h3>
+            <p class="mt-2 text-sm text-muted">Most jobs are done in around 60 minutes while you carry on with your day.</p>
+          </div>
+
+          <div class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="h-11 w-11 grid place-items-center rounded-xl bg-gold/10 text-gold-bright mb-4">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg">Satisfaction guaranteed</h3>
+            <p class="mt-2 text-sm text-muted">If you're not thrilled with the clarity, we'll make it right. Simple.</p>
+          </div>
+
+          <div class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="h-11 w-11 grid place-items-center rounded-xl bg-gold/10 text-gold-bright mb-4">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg>
+            </div>
+            <h3 class="font-display font-semibold text-lg">Safer night driving</h3>
+            <p class="mt-2 text-sm text-muted">Clear lenses put more light on the road — exactly when you need it most.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         7) SERVICE AREA
+         ==================================================================== -->
+    <section id="area" class="py-16 sm:py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">Where we serve</h2>
+        <p class="reveal mt-3 text-muted max-w-2xl mx-auto">
+          Based in <span class="text-paper font-medium">Eastlake, Chula Vista</span> — free mobile service across the South Bay and nearby San Diego.
+        </p>
+
+        <ul class="reveal mt-8 flex flex-wrap items-center justify-center gap-3">
+          <!-- The home base, highlighted -->
+          <li class="px-4 py-2 rounded-full bg-crimson/15 text-paper ring-1 ring-crimson/40 font-medium">Eastlake</li>
+          <li class="px-4 py-2 rounded-full bg-surface ring-1 ring-white/10">Chula Vista</li>
+          <li class="px-4 py-2 rounded-full bg-surface ring-1 ring-white/10">Bonita</li>
+          <li class="px-4 py-2 rounded-full bg-surface ring-1 ring-white/10">National City</li>
+          <li class="px-4 py-2 rounded-full bg-surface ring-1 ring-white/10">Otay Ranch</li>
+          <li class="px-4 py-2 rounded-full bg-surface ring-1 ring-white/10">San Diego</li>
+          <li class="px-4 py-2 rounded-full bg-surface ring-1 ring-white/10">Imperial Beach</li>
+        </ul>
+
+        <p class="reveal mt-6 text-sm text-muted">Not sure if you're in range? <a href="sms:+16192546943" class="text-gold-bright underline underline-offset-4">Text us your zip</a> and we'll confirm.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         8) TESTIMONIALS
+         ==================================================================== -->
+    <section id="reviews" class="py-16 sm:py-24 bg-surface">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">What customers say</h2>
+          <p class="reveal mt-3 text-muted">Real results, happy drivers.</p>
+        </div>
+
+        <!-- [TODO] Replace names, locations and quotes with real reviews. -->
+        <div class="grid gap-6 md:grid-cols-3">
+          <figure class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="text-gold mb-3" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="text-paper/90 text-sm leading-relaxed">"Looked like I got new headlights for a fraction of the price. He came right to my house and was done before lunch."</blockquote>
+            <figcaption class="mt-4 text-sm text-muted">— [TODO Name], [TODO City]</figcaption>
+          </figure>
+          <figure class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="text-gold mb-3" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="text-paper/90 text-sm leading-relaxed">"Night driving was honestly scary before. The difference is night and day — pun intended. Highly recommend."</blockquote>
+            <figcaption class="mt-4 text-sm text-muted">— [TODO Name], [TODO City]</figcaption>
+          </figure>
+          <figure class="reveal rounded-2xl bg-ink p-6 ring-1 ring-white/10">
+            <div class="text-gold mb-3" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="text-paper/90 text-sm leading-relaxed">"Super easy to book, on time, and professional. The UV seal add-on was worth it. My truck looks years younger."</blockquote>
+            <figcaption class="mt-4 text-sm text-muted">— [TODO Name], [TODO City]</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         9) BOOKING  (core conversion section)
+         ==================================================================== -->
+    <section id="booking" class="py-16 sm:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">Book your appointment</h2>
+          <p class="reveal mt-3 text-muted">Pick a time below — or call/text and we'll lock it in for you.</p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-5 items-start">
+          <!-- LEFT: Cal.com inline scheduler.
+               The embed <div> uses height:100%, so this card has an explicit
+               min-height to give the calendar room to render (it won't collapse).
+               The Cal.com loader <script> lives just before </body>. -->
+          <div class="reveal lg:col-span-3 rounded-2xl bg-surface ring-1 ring-white/10 p-3 sm:p-4 min-h-[680px]">
+            <!-- Cal inline embed code begins -->
+            <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-headlight-restoration-mobile-service"></div>
+            <!-- Cal inline embed code ends -->
+          </div>
+
+          <!-- RIGHT: Call & Text (always works, even before the embed is wired) -->
+          <div class="reveal lg:col-span-2 space-y-4">
+            <div class="rounded-2xl bg-gradient-to-br from-crimson-deep/40 to-surface p-6 ring-1 ring-gold/20">
+              <h3 class="font-display font-semibold text-xl">Prefer to talk?</h3>
+              <p class="mt-2 text-sm text-muted">Call or text and we'll get you on the schedule fast.</p>
+
+              <a href="tel:+16192546943" class="btn-glow mt-5 flex items-center justify-center gap-2 h-14 rounded-full bg-crimson text-paper font-semibold text-lg">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Call 619-254-6943
+              </a>
+
+              <a href="sms:+16192546943" class="mt-3 flex items-center justify-center gap-2 h-14 rounded-full border border-gold/40 text-gold-bright font-semibold text-lg hover:bg-gold/10 transition-colors">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Text us
+              </a>
+            </div>
+
+            <div class="rounded-2xl bg-surface p-6 ring-1 ring-white/10 text-sm text-muted">
+              <p class="flex items-center gap-2"><span class="text-gold">✦</span> We come to your home or work</p>
+              <p class="flex items-center gap-2 mt-2"><span class="text-gold">✦</span> Most appointments ~1 hour</p>
+              <p class="flex items-center gap-2 mt-2"><span class="text-gold">✦</span> Satisfaction guaranteed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         10) FAQ
+         ==================================================================== -->
+    <section id="faq" class="py-16 sm:py-24 bg-surface">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">Frequently asked questions</h2>
+        </div>
+
+        <!-- Native <details> = accessible, keyboard-friendly accordion, no JS needed -->
+        <div class="space-y-3">
+          <details class="reveal group rounded-xl bg-ink ring-1 ring-white/10 p-5">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-paper list-none">
+              How long does the service take?
+              <span class="text-gold transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted">Most cars take about an hour for a full pair. A single headlight is quicker — usually 30–45 minutes.</p>
+          </details>
+
+          <details class="reveal group rounded-xl bg-ink ring-1 ring-white/10 p-5">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-paper list-none">
+              How long do the results last?
+              <span class="text-gold transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted">With our UV ceramic seal, clarity typically lasts a long time — far longer than a basic polish. Exact longevity depends on sun exposure and care. <!-- [TODO] add a specific timeframe/warranty if you offer one --></p>
+          </details>
+
+          <details class="reveal group rounded-xl bg-ink ring-1 ring-white/10 p-5">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-paper list-none">
+              Do you really come to me?
+              <span class="text-gold transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted">Yes — we're fully mobile. We come to your home or workplace anywhere in our service area at no extra travel charge.</p>
+          </details>
+
+          <details class="reveal group rounded-xl bg-ink ring-1 ring-white/10 p-5">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-paper list-none">
+              How do I pay?
+              <span class="text-gold transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted">We accept all major cards, plus cash and common digital payments. <!-- [TODO] confirm accepted payment methods --> Payment is collected once the work is done and you're happy.</p>
+          </details>
+
+          <details class="reveal group rounded-xl bg-ink ring-1 ring-white/10 p-5">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-paper list-none">
+              What if it rains or the weather's bad?
+              <span class="text-gold transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted">We just need a dry spot — a garage or covered area works great. If the weather doesn't cooperate, we'll reschedule at no charge.</p>
+          </details>
+
+          <details class="reveal group rounded-xl bg-ink ring-1 ring-white/10 p-5">
+            <summary class="flex items-center justify-between cursor-pointer font-medium text-paper list-none">
+              Will restoration really help my night driving?
+              <span class="text-gold transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted">Absolutely. Foggy, yellowed lenses scatter and block light. Clearing them lets your bulbs project properly again, so you see more of the road at night.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA banner -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="reveal relative overflow-hidden rounded-3xl bg-gradient-to-br from-crimson-deep to-ink p-10 sm:p-14 text-center ring-1 ring-gold/20">
+          <div class="glow" style="width:360px;height:360px;top:-120px;left:50%;transform:translateX(-50%);"></div>
+          <h2 class="relative font-display font-extrabold text-3xl sm:text-4xl">Ready for clearer, safer nights?</h2>
+          <p class="relative mt-3 text-muted">Book online or text us — we'll come to you.</p>
+          <div class="relative mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="#booking" class="btn-glow w-full sm:w-auto inline-flex items-center justify-center h-[52px] px-8 rounded-full bg-crimson text-paper font-semibold">Book Now</a>
+            <a href="tel:+16192546943" class="w-full sm:w-auto inline-flex items-center justify-center h-[52px] px-8 rounded-full border border-gold/40 text-gold-bright font-semibold hover:bg-gold/10 transition-colors">Call 619-254-6943</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       11) FOOTER
+       ==================================================================== -->
+  <footer class="border-t border-white/10 bg-ink">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Brand -->
+      <div>
+        <img src="assets/logo.png" alt="Night Bright logo" class="h-10 w-auto" />
+        <p class="mt-4 text-sm text-muted max-w-xs">Mobile headlight restoration. <span class="text-paper font-medium">Clear Lights, Safer Nights.</span> Bringing clarity back to your drive.</p>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="font-display font-semibold text-sm uppercase tracking-wider text-paper">Contact</h3>
+        <ul class="mt-4 space-y-2 text-sm text-muted">
+          <li><a href="tel:+16192546943" class="hover:text-gold-bright">Call/Text: 619-254-6943</a></li>
+          <li><a href="mailto:nightbrightsd@gmail.com" class="hover:text-gold-bright">nightbrightsd@gmail.com</a></li>
+          <li>Hours: Wed–Sat, 9:00 AM – 5:00 PM</li>
+        </ul>
+      </div>
+
+      <!-- Service area -->
+      <div>
+        <h3 class="font-display font-semibold text-sm uppercase tracking-wider text-paper">Service area</h3>
+        <ul class="mt-4 space-y-2 text-sm text-muted">
+          <li>Eastlake · Chula Vista</li>
+          <li>Bonita · National City</li>
+          <li>Otay Ranch · San Diego</li>
+          <li>Imperial Beach</li>
+        </ul>
+      </div>
+
+      <!-- Social (placeholders) -->
+      <div>
+        <h3 class="font-display font-semibold text-sm uppercase tracking-wider text-paper">Follow</h3>
+        <div class="mt-4 flex gap-3">
+          <!-- Instagram (live) -->
+          <a href="https://www.instagram.com/NightBright_SD" target="_blank" rel="noopener" aria-label="Night Bright on Instagram" class="h-11 w-11 grid place-items-center rounded-full border border-white/15 text-muted hover:text-gold-bright hover:border-gold/40 transition-colors">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+          </a>
+
+          <!-- [TODO] Add Facebook when ready, then uncomment:
+          <a href="#" target="_blank" rel="noopener" aria-label="Night Bright on Facebook" class="h-11 w-11 grid place-items-center rounded-full border border-white/15 text-muted hover:text-gold-bright hover:border-gold/40 transition-colors">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          -->
+
+          <!-- [TODO] Add Yelp when ready, then uncomment:
+          <a href="#" target="_blank" rel="noopener" aria-label="Night Bright on Yelp" class="h-11 w-11 grid place-items-center rounded-full border border-white/15 text-muted hover:text-gold-bright hover:border-gold/40 transition-colors">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-1 0-2 .5-2 1.5v8c0 1 1 1.6 1.8 1l5-3.4c.8-.6.6-1.8-.3-2.2C14.5 4 13 2 12 2zm-3.5 11.2-4.8 1.6c-1 .3-1.1 1.6-.2 2.1l3.4 2c.9.5 1.9-.2 1.8-1.2l-.2-4.5zm3 2.3c-.8-.4-1.7.2-1.7 1.1V21c0 1 1 1.7 1.9 1.3l3.9-1.8c.9-.4.9-1.7 0-2.2z"/></svg>
+          </a>
+          -->
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <p class="max-w-6xl mx-auto px-4 sm:px-6 py-6 text-xs text-muted text-center sm:text-left">
+        © <span id="year">2026</span> Night Bright · Mobile Headlight Restoration · Chula Vista, CA. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       STICKY MOBILE BOTTOM BAR (Book / Call) — phones only
+       ==================================================================== -->
+  <div class="mobile-bar md:hidden fixed bottom-0 inset-x-0 z-50 bg-ink/95 backdrop-blur border-t border-white/10">
+    <div class="grid grid-cols-2 gap-2 p-2">
+      <a href="#booking" class="inline-flex items-center justify-center h-12 rounded-xl bg-crimson text-paper font-semibold">Book Now</a>
+      <a href="tel:+16192546943" class="inline-flex items-center justify-center gap-2 h-12 rounded-xl border border-gold/40 text-gold-bright font-semibold">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call
+      </a>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       Cal.com inline embed loader (powers the booking calendar above).
+       Placed here, before </body>, so it loads after the embed container.
+       To change the calendar, update the calLink below in the Cal.com dashboard.
+       ==================================================================== -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "headlight-restoration-mobile-service", {origin:"https://app.cal.com"});
+    Cal.ns["headlight-restoration-mobile-service"]("inline", {
+      elementOrSelector:"#my-cal-inline-headlight-restoration-mobile-service",
+      config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+      calLink: "night-bright-jxnfze/headlight-restoration-mobile-service",
+    });
+    Cal.ns["headlight-restoration-mobile-service"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Our JavaScript (slider, reveals, menu, header) -->
+  <script src="js/main.js"></script>
+</body>
+</html>
