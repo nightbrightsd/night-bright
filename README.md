@@ -16,12 +16,11 @@ night-bright/
 │   └── styles.css       ← brand colors + the gold "glow/starburst" motif,
 │                          the before/after slider, and animations
 ├── js/
-│   └── main.js          ← before/after slider, scroll animations,
-│                          mobile menu, sticky-header behavior
+│   └── main.js          ← scroll animations, mobile menu,
+│                          sticky-header behavior
 ├── assets/
 │   ├── logo.png         ← your logo
-│   ├── ba-1-before.png  ← "before" photo shown in the slider
-│   └── ba-1-after.png   ← "after" photo shown in the slider
+│   └── before-after.jpg ← side-by-side restoration photo (after left / before right)
 ├── vercel.json          ← small config for clean URLs + caching on Vercel
 ├── .gitignore
 └── README.md            ← you're reading it

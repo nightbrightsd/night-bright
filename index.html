@@ -203,33 +203,23 @@
     </section>
 
     <!-- ====================================================================
-         3) BEFORE / AFTER  (the star feature — draggable slider)
+         3) BEFORE / AFTER  (single side-by-side photo)
          ==================================================================== -->
     <section id="results" class="py-16 sm:py-24 bg-surface">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-10">
           <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">See the difference</h2>
-          <p class="reveal mt-3 text-muted">Drag the slider to compare. Same headlight — minutes apart.</p>
+          <p class="reveal mt-3 text-muted">One headlight, minutes apart. Restored on the left, untouched on the right.</p>
         </div>
 
-        <!-- Draggable comparison slider. -->
-        <div class="reveal ba-slider shadow-2xl ring-1 ring-white/10" id="ba-slider">
-          <!-- AFTER image (full, underneath) -->
-          <img class="ba-after" src="assets/ba-1-after.png" alt="Crystal-clear headlight after Night Bright restoration" />
-          <!-- BEFORE image (clipped on the right by the handle) -->
-          <img class="ba-before" src="assets/ba-1-before.png" alt="Foggy yellowed headlight before Night Bright restoration" />
+        <!-- Single before/after photo: AFTER (clear) on the left, BEFORE (foggy) on the right. -->
+        <div class="reveal ba-photo shadow-2xl ring-1 ring-white/10">
+          <img src="assets/before-after.jpg"
+               alt="Headlight restoration before and after — oxidized yellowed lens on the right, fully restored clear lens on the left." />
 
-          <span class="ba-label ba-label-before">BEFORE</span>
           <span class="ba-label ba-label-after">AFTER</span>
-
-          <!-- Draggable, keyboard-accessible handle -->
-          <div class="ba-handle" id="ba-handle" role="slider" tabindex="0"
-               aria-label="Drag to compare the headlight before and after restoration"
-               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <span class="ba-knob" aria-hidden="true"></span>
-          </div>
+          <span class="ba-label ba-label-before">BEFORE</span>
         </div>
-        <p class="reveal mt-4 text-center text-xs text-muted">Tip: drag the gold handle — or use arrow keys when it's focused.</p>
       </div>
     </section>
 
